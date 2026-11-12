@@ -29,15 +29,15 @@
         private void InitializeComponent()
         {
             this.grpItemDetails = new System.Windows.Forms.GroupBox();
+            this.cmboxAmount = new System.Windows.Forms.ComboBox();
+            this.txtboxAmount = new System.Windows.Forms.TextBox();
+            this.txtboxDescription = new System.Windows.Forms.TextBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.lblboxItems = new System.Windows.Forms.ListBox();
             this.btnAdd = new System.Windows.Forms.Button();
             this.btnDelete = new System.Windows.Forms.Button();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.txtboxDescription = new System.Windows.Forms.TextBox();
-            this.txtboxAmount = new System.Windows.Forms.TextBox();
-            this.cmboxAmount = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
+            this.lblPrompt = new System.Windows.Forms.Label();
             this.grpItemDetails.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,6 +55,47 @@
             this.grpItemDetails.TabStop = false;
             this.grpItemDetails.Text = "Item Details";
             // 
+            // cmboxAmount
+            // 
+            this.cmboxAmount.FormattingEnabled = true;
+            this.cmboxAmount.Location = new System.Drawing.Point(306, 64);
+            this.cmboxAmount.Name = "cmboxAmount";
+            this.cmboxAmount.Size = new System.Drawing.Size(121, 21);
+            this.cmboxAmount.TabIndex = 4;
+            this.cmboxAmount.SelectedIndexChanged += new System.EventHandler(this.cmboxAmount_SelectedIndexChanged);
+            // 
+            // txtboxAmount
+            // 
+            this.txtboxAmount.Location = new System.Drawing.Point(106, 65);
+            this.txtboxAmount.Name = "txtboxAmount";
+            this.txtboxAmount.Size = new System.Drawing.Size(184, 20);
+            this.txtboxAmount.TabIndex = 3;
+            // 
+            // txtboxDescription
+            // 
+            this.txtboxDescription.Location = new System.Drawing.Point(106, 29);
+            this.txtboxDescription.Name = "txtboxDescription";
+            this.txtboxDescription.Size = new System.Drawing.Size(453, 20);
+            this.txtboxDescription.TabIndex = 2;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(40, 69);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(43, 13);
+            this.label2.TabIndex = 1;
+            this.label2.Text = "Amount";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(40, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(60, 13);
+            this.label1.TabIndex = 0;
+            this.label1.Text = "Description";
+            // 
             // lblboxItems
             // 
             this.lblboxItems.FormattingEnabled = true;
@@ -62,6 +103,8 @@
             this.lblboxItems.Name = "lblboxItems";
             this.lblboxItems.Size = new System.Drawing.Size(726, 238);
             this.lblboxItems.TabIndex = 1;
+            this.lblboxItems.Click += new System.EventHandler(this.lblboxItems_SelectedIndexChanged);
+            this.lblboxItems.SelectedIndexChanged += new System.EventHandler(this.ucProductListing_Load);
             // 
             // btnAdd
             // 
@@ -81,65 +124,26 @@
             this.btnDelete.TabIndex = 3;
             this.btnDelete.Text = "Delete";
             this.btnDelete.UseVisualStyleBackColor = true;
+            this.btnDelete.Click += new System.EventHandler(this.btnDelete_Click);
             // 
-            // label1
+            // lblPrompt
             // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(40, 32);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(60, 13);
-            this.label1.TabIndex = 0;
-            this.label1.Text = "Description";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(40, 69);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(43, 13);
-            this.label2.TabIndex = 1;
-            this.label2.Text = "Amount";
-            // 
-            // txtboxDescription
-            // 
-            this.txtboxDescription.Location = new System.Drawing.Point(106, 29);
-            this.txtboxDescription.Name = "txtboxDescription";
-            this.txtboxDescription.Size = new System.Drawing.Size(453, 20);
-            this.txtboxDescription.TabIndex = 2;
-            // 
-            // txtboxAmount
-            // 
-            this.txtboxAmount.Location = new System.Drawing.Point(106, 65);
-            this.txtboxAmount.Name = "txtboxAmount";
-            this.txtboxAmount.Size = new System.Drawing.Size(184, 20);
-            this.txtboxAmount.TabIndex = 3;
-            // 
-            // cmboxAmount
-            // 
-            this.cmboxAmount.FormattingEnabled = true;
-            this.cmboxAmount.Location = new System.Drawing.Point(306, 64);
-            this.cmboxAmount.Name = "cmboxAmount";
-            this.cmboxAmount.Size = new System.Drawing.Size(121, 21);
-            this.cmboxAmount.TabIndex = 4;
-            this.cmboxAmount.SelectedIndexChanged += new System.EventHandler(this.cmboxAmount_SelectedIndexChanged);
-            // 
-            // label3
-            // 
-            this.label3.BackColor = System.Drawing.Color.Red;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.SystemColors.ButtonFace;
-            this.label3.Location = new System.Drawing.Point(0, 430);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(795, 39);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Prompt";
-            this.label3.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrompt.BackColor = System.Drawing.Color.Red;
+            this.lblPrompt.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblPrompt.ForeColor = System.Drawing.SystemColors.ButtonFace;
+            this.lblPrompt.Location = new System.Drawing.Point(30, 381);
+            this.lblPrompt.Name = "lblPrompt";
+            this.lblPrompt.Size = new System.Drawing.Size(726, 32);
+            this.lblPrompt.TabIndex = 4;
+            this.lblPrompt.Text = "Prompt";
+            this.lblPrompt.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.lblPrompt.Click += new System.EventHandler(this.lblPrompt_Click);
             // 
             // ucProductListing
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.label3);
+            this.Controls.Add(this.lblPrompt);
             this.Controls.Add(this.btnDelete);
             this.Controls.Add(this.btnAdd);
             this.Controls.Add(this.lblboxItems);
@@ -163,6 +167,6 @@
         private System.Windows.Forms.ComboBox cmboxAmount;
         private System.Windows.Forms.TextBox txtboxAmount;
         private System.Windows.Forms.TextBox txtboxDescription;
-        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label lblPrompt;
     }
 }

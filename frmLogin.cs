@@ -25,8 +25,7 @@ namespace CATAYAS_WEEK_06_WORK_05
 
         private void txtboxUsername_TextChanged(object sender, EventArgs e)
         {
-            txtboxUsername.Focus();
-            
+
         }
 
         private void txtboxPassword_TextChanged(object sender, EventArgs e)
@@ -48,7 +47,8 @@ namespace CATAYAS_WEEK_06_WORK_05
                 return;
             }
 
-            if (txtboxUsername.Text == "admin" && txtboxPassword.Text == "admin123") {
+            if (txtboxUsername.Text == "admin" && txtboxPassword.Text == "admin123")
+            {
                 MessageBox.Show("Login successful!");
                 var inventoryForm = new frmInventory();
                 inventoryForm.Show();
@@ -58,11 +58,6 @@ namespace CATAYAS_WEEK_06_WORK_05
             {
                 MessageBox.Show("Invalid username or password");
             }
-
-
-            frmInventory inventory = new frmInventory();
-            inventory.Show();
-            this.Hide();
         }
 
         private void btnSignup_Click(object sender, EventArgs e)
